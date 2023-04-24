@@ -26,7 +26,10 @@ app.use(express.json());
 app.use('/api', routes);
 
 app.get('/healthcheck', (req, res) => {
-    res.status(200);
+    res.status(200).send({
+        status: 200,
+        message: "OK",
+    });
 });
 
 app.listen(process.env.PORT || 3000, () => {
