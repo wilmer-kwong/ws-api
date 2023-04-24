@@ -4,7 +4,12 @@ const routes = require('./routes');
 
 require('dotenv').config();
 
-mongoose.connect(process.env.ATLAS_URI);
+mongoose.connect(process.env.ATLAS_URI)
+.catch((err) => {
+    console.log("There was an error connecting to the database:");
+    console.log(err);
+});
+
 const db = mongoose.connection;
 
 db.once('connected', () => {
