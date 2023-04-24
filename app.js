@@ -20,8 +20,8 @@ const app = express();
 app.use(express.json());
 app.use('/api', routes);
 
-app.get('/', (req, res) => {
-    res.send('Api root');
+app.get('/healthcheck', (req, res) => {
+    res.status(200);
 });
 
 app.listen(process.env.PORT || 3000, () => {
