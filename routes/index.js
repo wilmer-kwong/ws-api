@@ -7,17 +7,18 @@ const { getAllCards, getOneCard } = require('./get');
 router.get('/cards', getAllCards)
 
 // GET
-// /cards/<id>
 router.get('/cards/:id', getOneCard);
 
 // POST
-// /post
 router.post('/cards', require('./post'));
 
 // PUT
+router.put('/cards/:id', require('./put'));
+
+// PATCH
 router.patch('/cards/:id', require('./patch'));
 
-//Delete by ID Method
+// DELETE
 router.delete('/cards/:id', require('./delete'));
 
 module.exports = router;

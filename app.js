@@ -23,7 +23,22 @@ db.on('error', (err) => {
 const app = express();
 
 app.use(express.json());
+
+// api routes
 app.use('/api', routes);
+
+app.get('/', (req, res) => {
+    res.send({
+        routes: [
+            'POST: api/cards',
+            'GET: api/cards',
+            'GET: api/cards/:id',
+            'PATCH: api/cards/:id',
+            'PUT: api/cards/:id',
+            'DELETE: api/cards/:id'
+        ],
+    });
+})
 
 app.get('/healthcheck', (req, res) => {
     res.status(200).send({

@@ -17,7 +17,8 @@ const postCard = async (req, res) => {
 
     await card.save()
     .then((data) => {
-        res.status(200).json(data);
+        res.location('/cards/' + data._id);
+        res.status(201).json(data);
     })
     .catch((err) => {
         res.status(400).json(err);

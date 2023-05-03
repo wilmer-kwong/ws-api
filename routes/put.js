@@ -3,9 +3,8 @@ const model = require("../model");
 const updateCard = async (req, res) => {
     const id = req.params.id;
     newData = req.body;
-    const options = { new: true };
 
-    await model.findByIdAndUpdate(id, newData, options)
+    await model.findOneAndReplace(id, newData)
     .then((data) => {
         res.status(201).send(data);
     }).catch((err) => {
